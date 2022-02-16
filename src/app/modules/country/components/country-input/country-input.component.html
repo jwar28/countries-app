@@ -1,0 +1,20 @@
+<form class="form-inline"
+      autocomplete="off"
+      (ngSubmit)="search()">
+    <div class="row">
+        <div class="col-10">
+            <input type="text"
+                   name="term"
+                   class="form-control mb-2 mr-sm-2"
+                   placeholder="Search country by {{placeholder}}"
+                   (input)="keyPressed($event)"
+                   [(ngModel)]="term">
+        </div>
+        <div class="col-auto">
+            <button type="submit"
+                    class="btn btn-primary mb-2"> Search
+            </button>
+        </div>
+    </div>
+</form>
+

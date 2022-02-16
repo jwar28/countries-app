@@ -8,36 +8,36 @@ import { SeeCountryComponent } from './modules/country/pages/see-country/see-cou
 
 const routes: Routes = [
   {
-    path: '',
+    path     : '',
     component: ByCountryComponent,
     pathMatch: 'full'
   },
   {
-    path: 'region',
+    path     : 'region',
     component: ByRegionComponent,
   },
   {
-    path: 'capital',
+    path     : 'capital',
     component: ByCapitalComponent,
   },
   {
-    path: 'pais/:id',
+    path     : 'country/:id',
     component: SeeCountryComponent,
   },
   {
-    path: '**',
+    path      : '**',
     redirectTo: '',
   }
 ];
 
-@NgModule({
+@NgModule( {
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot( routes )
   ],
   exports: [
     RouterModule
   ]
-})
+} )
 export class AppRoutingModule {
 
 }

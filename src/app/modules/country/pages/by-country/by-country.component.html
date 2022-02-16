@@ -1,42 +1,21 @@
-<h2>Por País</h2>
+<h2>Country</h2>
 <hr>
 
 <div class="row">
     <div class="col">
-        <form autocomplete="off" (ngSubmit)="search()">
-            <input type="text"
-                   name="term"
-                   class="form-control"
-                   [(ngModel)]="term"
-                   placeholder="Buscar pais">
-
-        </form>
+        <app-country-input (onEnter)="searchCountryByName($event)"
+                           (onDebounce)="suggest($event)"
+                           placeholder="name">
+        </app-country-input>
     </div>
 </div>
-
 <hr>
 
-<div class="alert alert-danger">
-    No se encontro nada relacionado
-</div>
+<app-not-found [errorExist]="errorExist"></app-not-found>
 
-<div class="row">
+<div *ngIf="!errorExist && countries.length != 0"
+     class="row">
     <div class="col">
-        <table class="table table-hover">
-            <caption></caption>
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Bandera</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Población</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td></td>
-            </tr>
-            </tbody>
-        </table>
+        <app-country-table [countries]="countries"></app-country-table>
     </div>
 </div>
