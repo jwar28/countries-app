@@ -3,14 +3,13 @@ import { CountryService } from "../../services/country.service";
 import { Country } from "../../models/country";
 
 @Component( {
-  selector   : 'app-by-country',
-  templateUrl: './by-country.component.html',
+  selector   : 'app-by-name',
+  templateUrl: './by-name.component.html',
   styles     : []
 } )
-export class ByCountryComponent {
+export class ByNameComponent {
   errorExist: boolean  = false;
   countries: Country[] = [];
-  title: string        = "name";
 
   constructor( private countryService: CountryService ) {
   }

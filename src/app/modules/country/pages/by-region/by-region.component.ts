@@ -11,18 +11,16 @@ export class ByRegionComponent {
   errorExist: boolean  = false;
   countries: Country[] = [];
 
+  get getRegions(): string[] {
+    return this.countryService.regions;
+  }
+
   constructor( private countryService: CountryService ) {
   }
 
   searchCountryByRegion( term: string ) {
-    this.errorExist = false;
     this.countryService.searchCountryByRegion( term )
-        .subscribe( ( countries ) => {
-          this.countries = countries;
-        }, ( err ) => {
-          this.errorExist = true;
-          this.countries  = [];
-        } )
+        .subscribe( countries => this.countries = countries );
   }
 
   suggest( term: string ) {

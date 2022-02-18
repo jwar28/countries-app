@@ -23,13 +23,7 @@ export class CountryInputComponent implements OnInit {
         } )
   }
 
-  search() {
-    this.onEnter
-        .emit( this.term );
-  }
+  search = () => this.onEnter.emit( this.term );
 
-  keyPressed( $event: any ) {
-    this.debouncer
-        .next( this.term );
-  }
+  keyPressed = ( $event: any ) => this.debouncer.next( this.term );
 }

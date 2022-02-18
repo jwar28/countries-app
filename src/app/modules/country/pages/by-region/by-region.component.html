@@ -1,21 +1,15 @@
-<h2>By Region</h2>
+<h2>Search country by region</h2>
 <hr>
+<h4>Select a region</h4>
+<app-region-button (onButtonClick)="searchCountryByRegion( $event )"
+                   [regions]="getRegions"></app-region-button>
 
-<div class="row">
-    <div class="col">
-        <app-country-input (onEnter)="searchCountryByRegion($event)"
-                           (onDebounce)="suggest($event)"
-                           placeholder="region">
-        </app-country-input>
-    </div>
-</div>
-<hr>
-
-<app-not-found [errorExist]="errorExist"></app-not-found>
+<app-not-found [errorExist]="errorExist"
+               class="region-button"></app-not-found>
 
 <div *ngIf="!errorExist && countries.length != 0"
      class="row">
-    <div class="col">
+    <div class="col mt-3">
         <app-country-table [countries]="countries"></app-country-table>
     </div>
 </div>

@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col">
+        <button *ngFor="let region of regions"
+                [class]="getCssClass( region )"
+                class="region-button"
+                (click)="emitActiveRegion( region )">
+            {{ region | titlecase }}
+        </button>
+    </div>
+</div>
+

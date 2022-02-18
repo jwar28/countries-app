@@ -10,7 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SidebarComponent,
     NotFoundComponent
   ],
-  imports     : [
+  imports : [
     CommonModule,
     RouterModule
   ],
