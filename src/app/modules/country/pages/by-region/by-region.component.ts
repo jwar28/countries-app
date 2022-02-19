@@ -22,8 +22,4 @@ export class ByRegionComponent {
     this.countryService.searchCountryByRegion( term )
         .subscribe( countries => this.countries = countries );
   }
-
-  suggest( term: string ) {
-
-  }
 }

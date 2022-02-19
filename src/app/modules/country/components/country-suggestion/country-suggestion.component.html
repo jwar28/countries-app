@@ -1,0 +1,14 @@
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action animate__animated animate__fadeIn animate__slow"
+        *ngFor="let country of suggestedCountries">
+        <a class="nav-link"
+           [routerLink]="['/country', country.cioc]">
+            <div class="suggestion">
+                <img class="small-flag"
+                     [src]="country.flags.svg"
+                     [alt]="country.flags.png">
+                {{country.name.common}}
+            </div>
+        </a>
+    </li>
+</ul>

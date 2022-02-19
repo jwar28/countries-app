@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './sidebar.component.html',
   styles     : [
     `
+        .main-title {
+            cursor: pointer;
+        }
+
         h2 {
             text-align: center;
         }

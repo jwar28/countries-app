@@ -11,6 +11,7 @@ import { CountryTableComponent } from './components/country-table/country-table.
 import { CountryInputComponent } from './components/country-input/country-input.component';
 import { SharedModule } from "../../shared/shared.module";
 import { RegionButtonComponent } from './components/region-button/region-button.component';
+import { CountrySuggestionComponent } from './components/country-suggestion/country-suggestion.component';
 
 
 @NgModule( {
@@ -22,6 +23,7 @@ import { RegionButtonComponent } from './components/region-button/region-button.
     CountryTableComponent,
     CountryInputComponent,
     RegionButtonComponent,
+    CountrySuggestionComponent,
   ],
   imports     : [
     CommonModule,

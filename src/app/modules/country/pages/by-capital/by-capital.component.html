@@ -1,21 +1,26 @@
-<h2>Search country by capital</h2>
-<hr>
+<div class="animate__animated animate__fadeIn">
+    <h2>Search country by capital</h2>
+    <hr>
 
-<div class="row">
-    <div class="col">
-        <app-country-input (onEnter)="searchCountryByCapital($event)"
-                           (onDebounce)="suggestCountry($event)"
-                           placeholder="capital">
-        </app-country-input>
+    <div class="row">
+        <div class="col">
+            <app-country-input (onEnter)="searchCountryByCapital($event)"
+                               (onDebounce)="suggestCountry($event)"
+                               placeholder="capital">
+            </app-country-input>
+        </div>
     </div>
-</div>
-<hr>
 
-<app-not-found [errorExist]="errorExist"></app-not-found>
+    <app-country-suggestion [suggestedCountries]="suggestedCountries"></app-country-suggestion>
 
-<div *ngIf="!errorExist && countries.length != 0"
-     class="row">
-    <div class="col">
-        <app-country-table [countries]="countries"></app-country-table>
+    <hr>
+
+    <app-not-found [errorExist]="errorExist"></app-not-found>
+
+    <div *ngIf="!errorExist && countries.length != 0"
+         class="row">
+        <div class="col">
+            <app-country-table [countries]="countries"></app-country-table>
+        </div>
     </div>
 </div>

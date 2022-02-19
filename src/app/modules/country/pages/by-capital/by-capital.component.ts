@@ -8,8 +8,9 @@ import { CountryService } from "../../services/country.service";
   styles     : []
 } )
 export class ByCapitalComponent {
-  errorExist: boolean  = false;
-  countries: Country[] = [];
+  errorExist: boolean           = false;
+  countries: Country[]          = [];
+  suggestedCountries: Country[] = [];
 
   constructor( private countryService: CountryService ) {
   }
@@ -18,13 +19,24 @@ export class ByCapitalComponent {
     this.errorExist = false;
     this.countryService.searchCountryByCapital( term )
         .subscribe( ( countries ) => {
-          this.countries = countries;
-        }, ( err ) => {
+          this.countries          = countries;
+          this.suggestedCountries = [];
+        }, error => {
           this.errorExist = true;
           this.countries  = [];
         } )
   }
 
   suggestCountry( term: string ) {
+    this.errorExist = false;
+
+    this.countryService.searchCountryByCapital( term )
+        .subscribe( countries => this.suggestedCountries = countries.splice( 0, 3 ),
+          error => {
+            term === ''
+            ? this.suggestedCountries = []
+            : (this.errorExist = true) && (this.suggestedCountries = []);
+          }
+        );
   }
 }

@@ -1,15 +1,17 @@
-<h2>Search country by region</h2>
-<hr>
-<h4>Select a region</h4>
-<app-region-button (onButtonClick)="searchCountryByRegion( $event )"
-                   [regions]="getRegions"></app-region-button>
+<div class="animate__animated animate__fadeIn">
+    <h2>Search country by region</h2>
+    <hr>
+    <h4>Select a region</h4>
+    <app-region-button (onButtonClick)="searchCountryByRegion( $event )"
+                       [regions]="getRegions"></app-region-button>
 
-<app-not-found [errorExist]="errorExist"
-               class="region-button"></app-not-found>
+    <app-not-found [errorExist]="errorExist"
+                   class="region-button"></app-not-found>
 
-<div *ngIf="!errorExist && countries.length != 0"
-     class="row">
-    <div class="col mt-3">
-        <app-country-table [countries]="countries"></app-country-table>
+    <div *ngIf="!errorExist && countries.length != 0"
+         class="row">
+        <div class="col mt-3">
+            <app-country-table [countries]="countries"></app-country-table>
+        </div>
     </div>
 </div>

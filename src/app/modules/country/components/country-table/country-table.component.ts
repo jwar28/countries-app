@@ -7,5 +7,4 @@ import { Country } from "../../models/country";
 } )
 export class CountryTableComponent {
   @Input() countries: Country[] = [];
-
 }

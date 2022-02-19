@@ -20,6 +20,11 @@ export class CountryService {
 
   getCountriesRequest = ( url: string ) => this.http.get<Country[]>( url, {params: this.httpParams} );
 
+  getAllCountries() {
+    const url = `${ this._apiUrl }/all`;
+    return this.getCountriesRequest( url );
+  }
+
   searchCountryByName( term: string ): Observable<Country[]> {
     const url = `${ this._apiUrl }/name/${ term }`;
     return this.getCountriesRequest( url );
